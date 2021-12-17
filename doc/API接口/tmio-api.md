@@ -42,7 +42,7 @@ bool getDoubleOption(const std::string &optname, double *value);
 
 bool getStrOption(const std::string &optname, std::string *value);
 ```
-*** 参数名详见[tmio-option](tmio-option.md)
+#### 参数名详见[tmio-option](tmio-option.md)
 
 ------
 
