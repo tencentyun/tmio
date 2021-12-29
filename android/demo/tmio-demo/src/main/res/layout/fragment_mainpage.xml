@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    tools:context=".ui.mainpage.MainPageFragment">
+
+    <TextView
+        android:id="@+id/text_sdk_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_vertical_margin"
+        tools:text="SDK version"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_margin="@dimen/view_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@id/text_sdk_version"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/button_req_netcard_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_vertical_margin"
+        android:minWidth="200dp"
+        android:text="@string/get_netcard_info"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0" />
+
+    <TextView
+        android:id="@+id/text_netcard_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_vertical_margin"
+        tools:text="netcard"
+        app:layout_constraintTop_toBottomOf="@id/button_req_netcard_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_margin="@dimen/view_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@id/text_netcard_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/button_req_celluar"
+        android:layout_width="wrap_content"
+        android:minWidth="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@id/line2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/request_celluar"
+        app:layout_constraintHorizontal_bias="0" />
+
+    <TextView
+        android:id="@+id/text_celluar_network"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_vertical_margin"
+        tools:text="cellular"
+        app:layout_constraintTop_toBottomOf="@id/button_req_celluar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_margin="@dimen/view_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@id/text_celluar_network"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

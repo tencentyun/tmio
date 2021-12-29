@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context=".ui.proxy.TmioProxyFragment">
+
+    <LinearLayout
+        android:id="@+id/local_addr_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/local_addr"
+            android:textSize="@dimen/text_size"
+            />
+
+        <EditText
+            android:id="@+id/local_addr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/local_addr_default"
+            android:textSize="@dimen/text_size"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/view_horizontal_margin"
+            android:text="@string/proxy_type"
+            android:textSize="@dimen/text_size"
+            />
+
+        <Spinner
+            android:id="@+id/protocol_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/proxy_mode" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/remote_addr_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/local_addr_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/view_horizontal_margin"
+            android:text="@string/remote_addr"
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:id="@+id/remote_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/remote_url_hint"
+            android:textSize="@dimen/text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playback_addr_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/remote_addr_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/view_horizontal_margin"
+            android:text="@string/playback_addr"
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:id="@+id/playback_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/playback_addr_hint"
+            android:textSize="@dimen/text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bonding_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/playback_addr_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/view_horizontal_margin"
+        >
+
+        <TextView
+            android:id="@+id/text_bonding_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bonding_mode"
+            android:layout_marginEnd="@dimen/view_horizontal_margin"
+            android:textSize="@dimen/text_size" />
+
+        <RadioGroup
+            android:id="@+id/bonding_mode_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/view_horizontal_margin">
+
+            <RadioButton
+                android:id="@+id/bonding_close"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:text="@string/bonding_mode_close"
+                android:textSize="@dimen/text_size" />
+
+            <RadioButton
+                android:id="@+id/bonding_backup"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:text="@string/bonding_mode_backup"
+                android:textSize="@dimen/text_size" />
+
+            <RadioButton
+                android:id="@+id/bonding_broadcast"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:text="@string/bonding_mode_broadcast"
+                android:textSize="@dimen/text_size" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/start_proxy_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/start_proxy"
+        android:layout_margin="@dimen/view_horizontal_margin"
+        app:layout_constraintTop_toBottomOf="@id/bonding_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/start_push_btn"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        />
+
+    <Button
+        android:id="@+id/start_push_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/start_push"
+        android:layout_margin="@dimen/view_horizontal_margin"
+        app:layout_constraintStart_toEndOf="@+id/start_proxy_btn"
+        app:layout_constraintEnd_toStartOf="@+id/start_play_btn"
+        app:layout_constraintTop_toTopOf="@+id/start_proxy_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/start_proxy_btn"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        />
+
+    <Button
+        android:id="@+id/start_play_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/start_playback"
+        android:layout_margin="@dimen/view_horizontal_margin"
+        app:layout_constraintStart_toEndOf="@+id/start_push_btn"
+        app:layout_constraintTop_toTopOf="@+id/start_push_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/start_push_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        />
+
+    <Button
+        android:id="@+id/add_new_wifilink_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_wifi_link"
+        app:layout_constraintStart_toStartOf="@id/start_proxy_btn"
+        app:layout_constraintTop_toBottomOf="@id/start_proxy_btn"
+        app:layout_constraintEnd_toEndOf="@+id/start_proxy_btn"
+        />
+
+    <Button
+        android:id="@+id/add_new_celllink_btn"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/add_cell_link"
+        app:layout_constraintStart_toStartOf="@id/start_push_btn"
+        app:layout_constraintTop_toTopOf="@id/add_new_wifilink_btn"
+        app:layout_constraintBottom_toBottomOf="@id/add_new_wifilink_btn"
+        app:layout_constraintEnd_toEndOf="@id/start_push_btn"
+        />
+
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_new_wifilink_btn"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        />
+
+    <TextView
+        android:id="@+id/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:textSize="@dimen/text_size"
+        android:textColor="#FFFFFF00"
+        app:layout_constraintBottom_toTopOf="@+id/stats_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/video_view"
+        tools:text="报错信息" />
+
+    <TextView
+        android:id="@+id/stats_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:textSize="@dimen/text_size"
+        android:textColor="#FFFFFF00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/error_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="统计信息"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

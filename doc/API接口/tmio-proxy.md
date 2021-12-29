@@ -83,7 +83,7 @@ std::error_code start(const std::string &local_url, const std::string &remote_ur
 
 * `local_url`只支持tcp scheme，格式`tcp://${ip}:${port}`。port可以为0，为0时会绑定到随机端口，然后通过onStart()回调把绑定成功后的端口号返回给应用。使用0端口可以避免端口被占用、无权限等导致的绑定失败问题。
 * `remote_url`远程服务器url
-* `config` 配置参数，此参数当前仅支持在SRT BONDING 功能启用时使用，具体定义详见[SRT Bonding Config](tmio-feature.md#SRT%20Bonding%20Config%20(Group))
+* `config` 配置参数，此参数当前仅支持在SRT BONDING 功能启用时使用，具体定义详见[SRT Bonding Config](tmio-feature.md#srt-bonding-config-group)
 
 ----
 

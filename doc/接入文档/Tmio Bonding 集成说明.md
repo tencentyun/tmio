@@ -88,7 +88,7 @@
         * remote_url - 远端服务侧地址
         * local_port - 本地绑定端口，默认系统随机分配
         * weight - 链路权重
-        * socket_id - 上层应用创建的socket id， sdk会复制它，需上层应用自己释放
+        * socket_id - 上层应用创建的socket id， sdk会复制它，需上层应用自己释放`（对于proxy模式需要在调用start后，接收到回调通知onStart或onError后方可释放）`
 
 --------------
 
@@ -125,8 +125,14 @@
 
 
 ### android 集成bonding 功能说明 
+  * 说明
+ 
+    **在测试中发现，如果安卓手机已经连接wifi，即便手机开启了4G网络，也依然无法找到4G网卡，此外android客户端在c层直接调用系统函数bind()绑定到指定网卡失效。此时需要申请数据网络权限并进行绑定才可使用**
+ 
+  * 版本要求说明 api level >= 23 (android 6.0)
 
-    在测试中发现，如果安卓手机已经连接wifi，即便手机开启了4G网络，也依然无法找到4G网卡，此外android客户端在c层直接调用系统函数bind()绑定到指定网卡失效，这可能是android平台的限制策略。
+     **android 从5.0 开始支持网络多链路功能，但其bindsocket接口仅支持DatagramSocket，不支持其它文件描述符。直到6.0系统才开始支持其他文件描述符绑定。**
+
 ----
 - android平台下解决步骤为：
     1. 当手机同时开启wifi和4G网络时，需要在java层激活4G网络。
@@ -135,8 +141,12 @@
 - 激活4G网络
     * 激活4G网路需要在java层代码调用requestNetwork()函数
 
+- 创建socket
+    * 需在native层调用C++接口创建socket。原因是java层创建的DatagramSocket，它的协议族为AF_CCITT（通过getsockname获取sa_family），而SDK要求协议族为AF_INET或AF_INET6。
+
 - 网卡绑定
     * java层调用Network::bindSocket()进行网卡绑定
+    * api level 21（android 5.0）仅支持对DatagramSocket进行bind， api level 23 可支持其他文件描述符进行bind 
 
 - android 申请权限
     * android.permission.CHANGE_NETWORK_STATE
@@ -160,6 +170,15 @@
         }
 ```
 ---
+
+`创建socket`
+```c++
+        //ipv4
+        socket_id = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+        //ipv6
+        socket_id = socket(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
+```
+----
 
 `绑定socket`
 ```java
