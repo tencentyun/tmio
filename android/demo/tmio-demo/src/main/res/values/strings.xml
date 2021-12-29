@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Tmio Demo</string>
+    <string name="title_proxy">代理模式</string>
+    <string name="title_bonding">Bonding演示</string>
+    <string name="title_home">首页</string>
+    <string name="local_addr">本地代理地址</string>
+    <string name="local_addr_default">tcp://0.0.0.0:1935</string>
+    <string name="proxy_type">模式</string>
+    <string name="remote_addr">推流地址</string>
+    <string name="remote_url_hint">srt://example</string>
+    <string name="playback_addr">播放地址</string>
+    <string name="playback_addr_hint">http://example/test.m3u8</string>
+    <string name="playback_host_default">5000.liveplay.myqcloud.com</string>>
+    <string name="start_proxy">启动代理</string>·
+    <string name="stop_proxy">停止代理</string>·
+    <string name="start_push">开始推流</string>·
+    <string name="start_playback">开始播放</string>
+    <string name="stop_push">停止推流</string>
+    <string name="stop_playback">停止播放</string>
+    <string name="local_file_path">/data/local/tmp/test.ts</string>
+    <string name="local_addr_ts">tcp://0.0.0.0:1936</string>
+    <string name="add_wifi_link">WiFi连接</string>
+    <string name="add_cell_link">移动网络</string>
+    <string name="get_netcard_info">获取/更新网络信息</string>
+    <string name="request_celluar">开启移动网络测试</string>
+    <string name="bonding_mode">Bonding模式选择</string>
+    <string name="bonding_mode_close">关闭</string>
+    <string name="bonding_mode_backup">Backup</string>
+    <string name="bonding_mode_broadcast">Broadcast</string>
+    <string name="srt_url_hint_ex">srt://ip:port?streamid=#!::h=xxxx.com,r=live/xxx,txSecret=xxxx,txTime=xxxxx</string>>
+</resources>

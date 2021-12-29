@@ -1,6 +1,6 @@
 # Tmio Feature 
 
-### SRT Protocol
+## Tmio Protocol
 ```c++
 enum class Protocol {
     TCP,  // only for test, should not be used
@@ -12,7 +12,7 @@ enum class Protocol {
 
 ---------------
 
-### SRT Control cmd
+## Tmio Control cmd
 ```c++
 enum class ControlCmd {
     // Tmio::control(ControlCmd, PerfStats *)
@@ -22,6 +22,7 @@ enum class ControlCmd {
 * 当前仅支持SRT 单链路下的获取网络传输状态
 
 --------------
+## SRT Feature
 
 ### SRT Trans Mode
 ```c++
@@ -43,7 +44,7 @@ enum class SrtTransMode {
 
 --------------
 
-### SRT_NetCardOption
+### SRT NetCardOption
 ```c++
 struct NetCardOption{
     // Network card name, Used to specify the network card to send and receive
@@ -105,7 +106,7 @@ struct TMIO_EXTERN SrtFeatureConfig {
 
 ```
 - `SrtFeatureConfig`结构 
-    * `protocol`： 定义了使用何种协议，在open调用时，需根据此参数判断是使用哪种协议，以便保存，具体协议详见 [SRT Protocol](tmio-feature.md#SRT%20Protocol)
-    * `trans_mode`： 为srt传输模式，据此来判断是否启用bonging功能, 详见[SRT Trans Mode](#SRT%20Trans%20Mode)
-    * `callback ` ：[NotifyCallback](tmio-feature.md#SRT%20Bonding%20Config%20(Group))回调通知接口，通知上层有链路断开
-    * `vec_net_option`： 组内使用网卡成员信息，详见[SRT NetCardOption](tmio-feature.md#SRT%20NetCardOption)
+    * `protocol`： 定义了使用何种协议，在open调用时，需根据此参数判断是使用哪种协议，以便保存，具体协议详见 [Tmio Protocol](#tmio-protocol)
+    * `trans_mode`： 为srt传输模式，据此来判断是否启用bonging功能, 详见[SRT Trans Mode](#srt-trans-mode)
+    * `callback ` ：[NotifyCallback](#srt-bonding-config-group)回调通知接口，通知上层有链路断开
+    * `vec_net_option`： 组内使用网卡成员信息，详见[SRT NetCardOption](#srt-netcardoption)

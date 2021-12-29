@@ -10,11 +10,7 @@
 
 -----
 
-### 3. [Tmio Option 配置](tmio-option.md)
-
------
-
-### 4. [Tmio proxy 使用](tmio-proxy.md)
+### 3. [Tmio proxy 使用](tmio-proxy.md)
 
 ----
 

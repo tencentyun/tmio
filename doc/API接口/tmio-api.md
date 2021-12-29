@@ -17,9 +17,9 @@ public:
 ### Protocol 参数
 ```c++
 enum class Protocol {
-    TCP,  // only for test, should not be used
+    TCP,  // 测试用
     SRT,
-    RIST,
+    RIST, // 可选支持
 };
 ```
 ------
@@ -58,7 +58,7 @@ virtual std::error_code open(const std::string &url, void *config = nullptr) = 0
 ```
 
 - 根据具体协议，打开过程建立连接
-- config接口，不同协议可自定义config对应的结构体和功能，例如，webrtc打开的过程需要信令通道，config参数可以作为信令通道传输配置接口，当前支持srt bonding 配置具体定义详见[SrtFeatureConfig](tmio-feature.md#SRT%20Bonding%20Config%20(Group))
+- config接口，不同协议可自定义config对应的结构体和功能，例如，webrtc打开的过程需要信令通道，config参数可以作为信令通道传输配置接口，当前支持srt bonding 配置具体定义详见[SrtFeatureConfig](tmio-feature.md#srt-bonding-config-group)
 - 建立连接是阻塞的过程，代码实现要考虑`open()`时用户调用`interrupt()`
 
 ------
@@ -118,7 +118,7 @@ std::error_code control(ControlCmd cmd, ...);
 ----
 
 ### 中断
-```C++
+```c++
 virtual void interrupt() = 0;
 ```
 
