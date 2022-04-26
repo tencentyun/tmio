@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2022 Tencent
+ */
+
 #pragma once
 
 #include <stdint.h>
@@ -63,6 +67,7 @@ struct TMIO_EXTERN PerfStats {
     // time since start, in milliseconds
     int64_t timestamp_ms;
 
+    int64_t bytes_in_flight;
     // senting rate in Mb/s
     double sent_rate_mbps;
     // receiving rate in Mb/s
@@ -72,6 +77,7 @@ struct TMIO_EXTERN PerfStats {
     // RTT, in milliseconds
     double rtt_ms;
 
+    double delivery_rate_mbps;
     double sent_buffer_watermark;
     double recv_buffer_watermark;
 

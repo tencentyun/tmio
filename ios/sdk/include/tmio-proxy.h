@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2022 Tencent
+ */
+
 #pragma once
 
 #include "tmio.h"
@@ -5,7 +9,7 @@
 namespace tmio {
 
 class TMIO_EXTERN TmioProxyListener {
-public:
+ public:
     virtual ~TmioProxyListener() = default;
 
     virtual void onTmioConfig(Tmio *tmio) = 0;
@@ -40,7 +44,7 @@ public:
  * Client <--(TCP)--> TmioProxy <--(Protocol)--> Remote Server
  */
 class TMIO_EXTERN TmioProxy {
-public:
+ public:
     static TmioProxy *create();
 
     static std::unique_ptr<TmioProxy> createUnique() {
