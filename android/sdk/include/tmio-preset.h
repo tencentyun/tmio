@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2022 Tencent
+ */
+
 #pragma once
 
 #include "tmio.h"
@@ -5,7 +9,7 @@
 namespace tmio {
 
 class SrtPreset final {
-public:
+ public:
     SrtPreset() = delete;
     ~SrtPreset() = delete;
 
@@ -42,7 +46,7 @@ public:
         commonSet(tmio);
     }
 
-private:
+ private:
     static void commonSet(Tmio *tmio) {
         tmio->setIntOption(srt_options::MAXBW, max_bandwidth);
         tmio->setIntOption(srt_options::SEND_BUFFER_SIZE, buf_size);

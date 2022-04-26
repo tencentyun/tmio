@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2022 Tencent
+ */
+
 #pragma once
 
 #include <stdint.h>
@@ -12,7 +16,7 @@ namespace tmio {
 
 template <typename T>
 class OptionManager {
-public:
+ public:
     bool setOptionValue(const std::string &optname, T value) {
         auto item = option_map_.find(optname);
         // check optname is valid
@@ -107,7 +111,7 @@ public:
         return ss.str();
     }
 
-private:
+ private:
     std::map<std::string, SetGetCallback> option_map_;
     std::map<std::string, std::pair<T, T>> option_min_max_range_;
     std::map<std::string, std::set<T>> option_enum_range_;

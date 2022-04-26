@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2022 Tencent
+ */
+
 #pragma once
 
 #include <stdarg.h>
@@ -29,7 +33,7 @@ enum LogPriority {
 };
 
 class TMIO_EXTERN Logger final {
-public:
+ public:
     static Logger &getInstance();
 
     using LogCallback =
@@ -51,10 +55,10 @@ public:
 
     void log(LogPriority level, const char *tag, const char *fmt, ...);
 
-private:
+ private:
     void output(LogPriority level, const char *tag, const char *msg);
 
-private:
+ private:
     LogPriority log_level_ = TMIO_LOG_WARN;
     bool console_output_ = true;
     LogCallback callback_;
@@ -95,14 +99,14 @@ private:
                                     __PRETTY_FUNCTION__, ##__VA_ARGS__)
 
 class TMIO_EXTERN LogInOut {
-public:
-    LogInOut(const char *str, LogPriority level = TMIO_LOG_INFO) : msg(str) {
+ public:
+    explicit LogInOut(const char *str, LogPriority level = TMIO_LOG_INFO) : msg(str) {
         LOGI("%s >>>", msg);
     }
 
     ~LogInOut() { LOGI("%s <<<", msg); }
 
-private:
+ private:
     const char *msg;
 };
 

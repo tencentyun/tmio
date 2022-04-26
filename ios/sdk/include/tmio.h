@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2022 Tencent
+ */
+
 #pragma once
 
 #include <stdarg.h>
@@ -60,7 +64,7 @@ struct NetCardOption{
     // local udp client bind port
     int local_port;
 
-    //Weight, priority range【0-100】
+    // Weight, priority range【0-100】
     int weight;
 
     // udp socket id, if the value is not INVALID_SOCKET_VALUE, dup it to use
@@ -82,7 +86,6 @@ struct NetCardOption{
         this->weight = weight;
         this->socket_id = socket_id;
     }
-
 };
 
 struct TMIO_EXTERN SrtFeatureConfig {
@@ -117,7 +120,7 @@ struct TMIO_EXTERN SrtFeatureConfig {
 };
 
 class TMIO_EXTERN Tmio {
-public:
+ public:
     Tmio();
     virtual ~Tmio() = default;
 
@@ -211,7 +214,7 @@ public:
 
     virtual Protocol getProtocol() = 0;
 
-protected:
+ protected:
     virtual std::error_code ctrl(ControlCmd cmd, va_list args) = 0;
 
     OptionManager<bool> option_bool_;
@@ -225,7 +228,7 @@ protected:
 };
 
 class TMIO_EXTERN TmioFactory {
-public:
+ public:
     static Tmio *create(Protocol protocol);
     static std::string getSdkVersion();
 

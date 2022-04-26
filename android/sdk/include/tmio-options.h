@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2022 Tencent
+ */
+
 #pragma once
 
 #include <stdint.h>
@@ -116,6 +120,16 @@ constexpr const char *const MIN_VERSION =
 constexpr int TRANSTYPE_LIVE = 0;
 constexpr int TRANSTYPE_FILE = 1;
 constexpr const char *const TRANSTYPE = "The transmission type for the socket";
+
+// SRT_CONGESTIONTYPE
+// The bandwidth congestion control option defaults to match the trans type(SRT_TRANSTYPE).
+// TRANSTYPE_LIVE->"live", TRANSTYPE_FILE->"file", “live_bbr” is an extension based on live mode
+// When the TRANSTYPE = TRANSTYPE_LIVE, you can choose to configure it as “live_bbr”
+// or use the default configuration of "live"
+constexpr const char *const FILE_CONGCTL = "file";
+constexpr const char *const LIVE_CONGCTL = "live";
+constexpr const char *const LIVE_BBR_RATESAMPLE = "live_bbr";
+constexpr const char *const CONGESTIONTYPE = "The congestion control algorithm";
 
 // SRTO_LINGER
 // Type: int
